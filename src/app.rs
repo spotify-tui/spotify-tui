@@ -159,8 +159,8 @@ pub enum ActiveBlock {
   Artists,
   BasicView,
   Dialog(DialogContext),
-  Lyrics,
   // new: added lyrics activeBlock
+  Lyrics,
 }
 
 #[derive(Clone, PartialEq, Debug)]
