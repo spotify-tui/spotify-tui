@@ -1,13 +1,5 @@
 # Spotify TUI
 
-![Continuous Integration](https://github.com/Rigellute/spotify-tui/workflows/Continuous%20Integration/badge.svg?branch=master&event=push)
-![](https://img.shields.io/badge/license-MIT-blueviolet.svg)
-![](https://tokei.rs/b1/github/Rigellute/spotify-tui?category=code)
-[![Crates.io](https://img.shields.io/crates/v/spotify-tui.svg)](https://crates.io/crates/spotify-tui)
-![](https://img.shields.io/github/v/release/Rigellute/spotify-tui?color=%23c694ff)
-
-[![Follow Alexander Keliris (Rigellute)](https://img.shields.io/twitter/follow/AlexKeliris?label=Follow%20Alexander%20Keliris%20%28Rigellute%29&style=social)](https://twitter.com/intent/follow?screen_name=AlexKeliris)
-
 A Spotify client for the terminal written in Rust.
 
 ![Demo](https://user-images.githubusercontent.com/12150276/75177190-91d4ab00-572d-11ea-80bd-c5e28c7b17ad.gif)
