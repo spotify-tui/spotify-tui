@@ -1,13 +1,28 @@
 # Changelog
 
-## [Unreleased]
+## [0.26.0] - 2022-12-22
+
+### Fixed
 
 - Fix confirmation dialog handling on playlist delete [#910](https://github.com/Rigellute/spotify-tui/pull/910)
+- Fix typo in error message [#956](https://github.com/Rigellute/spotify-tui/pull/956)
+- Fix navigating to search results after searching [#962](https://github.com/Rigellute/spotify-tui/pull/962)
 
 ### Added
 
 - Show `album_type` in Search panes [#868](https://github.com/Rigellute/spotify-tui/pull/868)
 - Add option to set window title to "spt - Spotify TUI" on startup [#844](https://github.com/Rigellute/spotify-tui/pull/844)
+- Update Cargo.lock & apply clippy suggestions [#1046](https://github.com/Rigellute/spotify-tui/pull/1046)
+- Playlist pagination [#1010](https://github.com/Rigellute/spotify-tui/pull/1010)
+- Update progress label to be visible if progress bar is same color [#986](https://github.com/Rigellute/spotify-tui/pull/986)
+- Maintains shuffle through playback contexts [#966](https://github.com/Rigellute/spotify-tui/pull/966)
+- Skip writing client config if it is not writable [#952](https://github.com/Rigellute/spotify-tui/pull/952)
+- Add link to spotifyd wiki in README.md [#1011](https://github.com/Rigellute/spotify-tui/pull/1011)
+- Added feature to fetch song lyrics [#921](https://github.com/Rigellute/spotify-tui/pull/921)
+- Updated readme pronoun [#809](https://github.com/Rigellute/spotify-tui/pull/809)
+- Removed Snap
+- Rust fmt
+- Updated Cargo.toml & Cargo.lock
 
 ## [0.25.0] - 2021-08-24
 
