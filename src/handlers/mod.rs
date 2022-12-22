@@ -13,6 +13,7 @@ mod help_menu;
 mod home;
 mod input;
 mod library;
+mod lyrics;
 mod made_for_you;
 mod playbar;
 mod playlist;
@@ -21,7 +22,6 @@ mod recently_played;
 mod search_results;
 mod select_device;
 mod track_table;
-mod lyrics;
 
 use super::app::{ActiveBlock, App, ArtistBlock, RouteId, SearchResultBlock};
 use crate::event::Key;
@@ -225,7 +225,7 @@ fn handle_show_lyrics(app: &mut App) {
     match item {
       PlayingItem::Track(track) => {
         if let Some(artist) = track.artists.first() {
-            app.dispatch(IoEvent::GetLyrics(artist.name.clone(), track.name.clone()));
+          app.dispatch(IoEvent::GetLyrics(artist.name.clone(), track.name.clone()));
         }
       }
       PlayingItem::Episode(_episode) => {

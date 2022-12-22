@@ -32,7 +32,6 @@ use std::{
 use tokio::sync::Mutex;
 use tokio::try_join;
 
-
 #[derive(Debug)]
 pub enum IoEvent {
   GetCurrentPlayback,
@@ -309,7 +308,7 @@ impl<'a> Network<'a> {
       }
       IoEvent::GetLyrics(artist, song) => {
         self.get_lyrics(artist, song).await;
-      } 
+      }
     };
 
     let mut app = self.app.lock().await;
@@ -760,9 +759,9 @@ impl<'a> Network<'a> {
         let mut app = self.app.lock().await;
         app.song_progress_ms = 0;
         if let Some(current_playback_context) = &app.current_playback_context {
-            if current_playback_context.shuffle_state {
-                app.dispatch(IoEvent::Shuffle(false))
-            }
+          if current_playback_context.shuffle_state {
+            app.dispatch(IoEvent::Shuffle(false))
+          }
         }
         app.dispatch(IoEvent::GetCurrentPlayback);
       }
@@ -1551,17 +1550,16 @@ impl<'a> Network<'a> {
     }
   }
 
-  // return lyrics if found, None if an error happens with the request or the parsing 
-  // this is the only function that needs to be changed to change lyrics provider 
+  // return lyrics if found, None if an error happens with the request or the parsing
+  // this is the only function that needs to be changed to change lyrics provider
   async fn send_lyrics_request(&mut self, artist: String, song: String) -> Option<String> {
     let url = String::from("https://api.lyrics.ovh/v1/");
     let url_with_params = url + &artist + "/" + &song;
-    let response = ureq::get(&url_with_params)
-      .call();
+    let response = ureq::get(&url_with_params).call();
 
     #[derive(Deserialize)]
     struct LyricsResponse {
-        lyrics: String,
+      lyrics: String,
     }
 
     // parse the json from the http response.
@@ -1572,10 +1570,12 @@ impl<'a> Network<'a> {
         let json: LyricsResponse = serde_json::from_str(&x.into_string().ok()?).ok()?;
         let mut lyrics = json.lyrics;
         let first_word = lyrics.split(" ").next()?;
-        if first_word == "Paroles" {lyrics = lyrics.split_once("\n")?.1.to_owned();}
+        if first_word == "Paroles" {
+          lyrics = lyrics.split_once("\n")?.1.to_owned();
+        }
         Some(lyrics)
       }
       Err(_) => None,
-    } 
+    }
   }
 }

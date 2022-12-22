@@ -26,7 +26,6 @@ use util::{
   millis_to_minutes, BASIC_VIEW_HEIGHT, SMALL_TERMINAL_WIDTH,
 };
 
-
 pub enum TableId {
   Album,
   AlbumList,
@@ -273,9 +272,7 @@ where
     RouteId::Recommendations => {
       draw_recommendations_table(f, app, chunks[1]);
     }
-    RouteId::Lyrics => {
-      draw_lyrics_box(f, app, chunks[1])
-    }
+    RouteId::Lyrics => draw_lyrics_box(f, app, chunks[1]),
     RouteId::Error => {} // This is handled as a "full screen" route in main.rs
     RouteId::SelectedDevice => {} // This is handled as a "full screen" route in main.rs
     RouteId::Analysis => {} // This is handled as a "full screen" route in main.rs
@@ -1052,10 +1049,11 @@ where
             .add_modifier(modifier),
         )
         .percent(perc);
-        
-        // If playbar text color matches the playbar progress color, don't explicitely set its foreground color.
-        // The text color will be set by the playbar's foreground color, and automatically invert to ensure it stays visiable.
-        song_progress = if app.user_config.theme.playbar_progress == app.user_config.theme.playbar_progress_text {
+
+      // If playbar text color matches the playbar progress color, don't explicitely set its foreground color.
+      // The text color will be set by the playbar's foreground color, and automatically invert to ensure it stays visiable.
+      song_progress =
+        if app.user_config.theme.playbar_progress == app.user_config.theme.playbar_progress_text {
           song_progress.label(song_progress_label)
         } else {
           song_progress.label(Span::styled(
@@ -1063,7 +1061,7 @@ where
             Style::default().fg(app.user_config.theme.playbar_progress_text),
           ))
         };
-      
+
       f.render_widget(song_progress, chunks[2]);
     }
   }
@@ -1390,16 +1388,13 @@ where
 
   let lyrics_text = match &app.current_lyrics {
     Some(x) => x,
-    None    => "Lyrics not available for this song",
+    None => "Lyrics not available for this song",
   };
 
   let mut top_text = Text::from("\nPowered by Lyrics.ovh");
   top_text.patch_style(Style::default().fg(app.user_config.theme.text));
 
-  let bottom_text_raw = format!(
-    "{}",
-    lyrics_text
-  );
+  let bottom_text_raw = format!("{}", lyrics_text);
   let bottom_text = Text::from(bottom_text_raw.as_str());
 
   // lyrics header
