@@ -88,11 +88,7 @@ pub fn get_track_progress_percentage(song_progress_ms: u128, track_duration_ms: 
 
 // Make better use of space on small terminals
 pub fn get_main_layout_margin(app: &App) -> u16 {
-  if app.size.height > SMALL_TERMINAL_HEIGHT {
-    1
-  } else {
-    0
-  }
+  u16::from(app.size.height > SMALL_TERMINAL_HEIGHT)
 }
 
 #[cfg(test)]

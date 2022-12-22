@@ -1394,7 +1394,7 @@ where
   let mut top_text = Text::from("\nPowered by Lyrics.ovh");
   top_text.patch_style(Style::default().fg(app.user_config.theme.text));
 
-  let bottom_text_raw = format!("{}", lyrics_text);
+  let bottom_text_raw = lyrics_text.to_string();
   let bottom_text = Text::from(bottom_text_raw.as_str());
 
   // lyrics header

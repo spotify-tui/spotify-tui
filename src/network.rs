@@ -1366,7 +1366,7 @@ impl<'a> Network<'a> {
         Some(o) => o,
         None => x.offset,
       },
-      None => 0 as u32,
+      None => 0_u32,
     };
 
     let playlists = self
@@ -1569,9 +1569,9 @@ impl<'a> Network<'a> {
       Ok(x) => {
         let json: LyricsResponse = serde_json::from_str(&x.into_string().ok()?).ok()?;
         let mut lyrics = json.lyrics;
-        let first_word = lyrics.split(" ").next()?;
+        let first_word = lyrics.split(' ').next()?;
         if first_word == "Paroles" {
-          lyrics = lyrics.split_once("\n")?.1.to_owned();
+          lyrics = lyrics.split_once('\n')?.1.to_owned();
         }
         Some(lyrics)
       }
