@@ -8,9 +8,7 @@
 spotify-tui.sketch
 
 spt*.txt
-*.snap
 .ci/lp-creds
-snapcraft-login
 secrets.tar
 
 *.swp
