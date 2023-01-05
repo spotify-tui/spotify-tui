@@ -1,5 +1,9 @@
 # Spotify TUI
 
+*WARNING*: the owner of the spotify-tui organization, wael444, does not know
+any rust, and has simply applied patches taken from the unmaintained spotify-tui 
+repositroy made by Rigellute.
+
 A Spotify client for the terminal written in Rust.
 
 ![Demo](https://user-images.githubusercontent.com/12150276/75177190-91d4ab00-572d-11ea-80bd-c5e28c7b17ad.gif)
