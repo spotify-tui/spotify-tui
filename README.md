@@ -10,124 +10,21 @@ A Spotify client for the terminal written in Rust.
 
 The terminal in the demo above is using the [Rigel theme](https://rigel.netlify.com/).
 
-- [Spotify TUI](#spotify-tui)
-  - [Installation](#installation)
-    - [Homebrew](#homebrew)
-    - [AUR](#aur)
-    - [Nix](#nix)
-    - [Void Linux](#void-linux)
-    - [Fedora/CentOS](#fedora-centos)
-    - [Cargo](#cargo)
-      - [Note on Linux](#note-on-linux)
-    - [Windows](#windows-10)
-      - [Scoop installer](#scoop-installer)
-    - [Manual](#manual)
-  - [Connecting to Spotify’s API](#connecting-to-spotifys-api)
-  - [Usage](#usage)
-- [Configuration](#configuration)
-  - [Limitations](#limitations)
-  - [Using with spotifyd](#using-with-spotifyd)
-  - [Libraries used](#libraries-used)
-  - [Development](#development)
-    - [Windows Subsystem for Linux](#windows-subsystem-for-linux)
-  - [Roadmap](#roadmap)
-    - [High-level requirements yet to be implemented](#high-level-requirements-yet-to-be-implemented)
+## Building
 
-## Installation
+```
+git clone https://github.com/spotify-tui/spotify-tui
+cd spotify-tui
+cargo build --release
+```
 
 The binary executable is `spt`.
-
-### Homebrew
-
-For both macOS and Linux
-
-```bash
-brew install spotify-tui
-```
-
-To update, run
-
-```bash
-brew upgrade spotify-tui
-```
-
-### AUR
-
-For those on Arch Linux you can find the package on AUR [here](https://aur.archlinux.org/packages/spotify-tui/). If however you're using an AUR helper you can install directly from that, for example (in the case of [yay](https://github.com/Jguer/yay)), run
-
-```bash
-yay -S spotify-tui
-```
-
-### Nix
-
-Available as the package `spotify-tui`. To install run:
-
-```bash
-nix-env -iA nixpkgs.spotify-tui
-```
-
-Where `nixpkgs` is the channel name in your configuration. For a more up-to-date installation, use the unstable channel.
-It is also possible to add the package to `environment.systemPackages` (for NixOS), or `home.packages` when using [home-manager](https://github.com/rycee/home-manager).
-
-### Void Linux
-
-Available on the official repositories. To install, run
-
-```bash
-sudo xbps-install -Su spotify-tui
-```
-
-### Fedora/CentOS
-
-Available on the [Copr](https://copr.fedorainfracloud.org/coprs/atim/spotify-tui/) repositories. To install, run
-
-```bash
-sudo dnf copr enable atim/spotify-tui -y && sudo dnf install spotify-tui
-```
-
-### Cargo
-
-Use this option if your architecture is not supported by the pre-built binaries found on the [releases page](https://github.com/Rigellute/spotify-tui/releases).
-
-First, install [Rust](https://www.rust-lang.org/tools/install) (using the recommended `rustup` installation method) and then
-
-```bash
-cargo install spotify-tui
-```
-
-This method will build the binary from source.
-
-To update, run the same command again.
 
 #### Note on Linux
 
 For compilation on Linux the development packages for `libssl` are required.
 For basic installation instructions, see [install OpenSSL](https://docs.rs/openssl/0.10.25/openssl/#automatic).
 In order to locate dependencies, the compilation also requires `pkg-config` to be installed.
-
-If you are using the Windows Subsystem for Linux, you'll need to [install additional dependencies](#windows-subsystem-for-linux).
-
-### Windows 10
-
-#### Scoop installer
-
-First, make sure scoop installer is on your windows box, for instruction please visit [scoop.sh](https://scoop.sh)
-
-Then open powershell and run following two commands:
-
-```bash
-scoop bucket add scoop-bucket https://github.com/Rigellute/scoop-bucket
-scoop install spotify-tui
-```
-
-After that program is available as: `spt` or `spt.exe`
-
-### Manual
-
-1. Download the latest [binary](https://github.com/Rigellute/spotify-tui/releases) for your OS.
-1. `cd` to the file you just downloaded and unzip
-1. `cd` to `spotify-tui` and run with `./spt`
 
 ## Connecting to Spotify’s API
 
@@ -284,28 +181,6 @@ After that there is not much to it.
 - [tui-rs](https://github.com/fdehau/tui-rs)
 - [rspotify](https://github.com/ramsayleung/rspotify)
 
-## Development
-
-1. [Install OpenSSL](https://docs.rs/openssl/0.10.25/openssl/#automatic)
-1. [Install Rust](https://www.rust-lang.org/tools/install)
-1. [Install `xorg-dev`](https://github.com/aweinstock314/rust-clipboard#prerequisites) (required for clipboard support)
-1. Clone or fork this repo and `cd` to it
-1. And then `cargo run`
-
-### Windows Subsystem for Linux
-
-You might get a linking error. If so, you'll probably need to install additional dependencies required by the clipboard package
-
-```bash
-sudo apt-get install -y -qq pkg-config libssl-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
-```
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-## Roadmap
-
-The goal is to eventually implement almost every Spotify feature.
-
 ### High-level requirements yet to be implemented
 
 - Add songs to a playlist
@@ -331,7 +206,7 @@ This table shows all that is possible with the Spotify API, what is implemented 
 | album_track                                       | Yes              | Get Spotify catalog information about an album's tracks                                                                                                      | Yes        |
 | user                                              | No               | Gets basic profile information about a Spotify User                                                                                                          | No         |
 | playlist                                          | Yes              | Get full details about Spotify playlist                                                                                                                      | Yes        |
-| current_user_playlists                            | Yes              | Get current user playlists without required getting their profile                                                                                              | Yes        |
+| current_user_playlists                            | Yes              | Get current user playlists without required getting their profile                                                                                            | Yes        |
 | user_playlists                                    | No               | Gets playlists of a user                                                                                                                                     | No         |
 | user_playlist                                     | No               | Gets playlist of a user                                                                                                                                      | No         |
 | user_playlist_tracks                              | Yes              | Get full details of the tracks of a playlist owned by a user                                                                                                 | Yes        |
