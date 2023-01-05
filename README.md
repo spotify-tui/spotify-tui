@@ -10,13 +10,14 @@ A Spotify client for the terminal written in Rust.
 
 The terminal in the demo above is using the [Rigel theme](https://rigel.netlify.com/).
 
-## Building
+## Installation
 
 ```
-git clone https://github.com/spotify-tui/spotify-tui
-cd spotify-tui
-cargo build --release
+cargo install --git https://github.com/spotify-tui/spotify-tui
 ```
+
+This will install spotify-tui locally in `$CARGO_HOME` usually in `$HOME/.cargo`.
+
 
 The binary executable is `spt`.
 
