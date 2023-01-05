@@ -2,7 +2,8 @@
 
 *WARNING*: the owner of the spotify-tui organization, wael444, does not know
 any rust, and has simply applied patches taken from the unmaintained spotify-tui 
-repositroy made by Rigellute.
+repository made by Rigellute. if you are willing to maintain and take part of this
+fork or be a member of the organization; contact wael444.
 
 A Spotify client for the terminal written in Rust.
 
